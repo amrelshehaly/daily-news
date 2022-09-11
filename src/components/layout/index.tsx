@@ -16,7 +16,7 @@ const Layout:FC<Props> = ({children}) => {
                 </Typography>
             </Box>
         </Box>
-        <Box>
+        <Box sx={{padding:'1%'}}>
             {children}
         </Box>
     </Box>

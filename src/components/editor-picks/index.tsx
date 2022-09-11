@@ -14,7 +14,7 @@ import uni from '../../../public/images/uni.jpg'
 
 const Editorpicks = () => {
   return (
-    <List sx={{ width: '100%', maxWidth: '350px', bgcolor: 'background.paper' }}>
+    <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
       <ListItem alignItems="flex-start">
         <ListItemAvatar sx={{marginRight:'10px'}}>
             <Image src={uni}   width='70px' height='70px'  />

@@ -14,9 +14,9 @@ const uni = '../../images/uni.jpg'
 
 const Home = () => {
   return (
-    <Grid container spacing={1}>
-      <Grid item sm={6} md={5} lg={4} xl={3} xs={12}>
-        <Card sx={{ maxWidth: 400, width:'100%', height:'100%' }}>
+    <Grid container spacing={2}>
+      <Grid item sm={6} md={6} lg='auto'  xs={12}>
+        <Card sx={{ maxWidth: 400, width:'100%', height:'100%', margin: '0 auto' }}>
           <CardMedia
             component="img"
             alt="green iguana"
@@ -38,10 +38,10 @@ const Home = () => {
           </CardActions>
         </Card>
       </Grid>
-      <Grid item sm={6} md={5} lg={4} xl={3} xs={12}>
-        <Grid container direction='column' spacing={1}>
+      <Grid item sm={6} md={6} lg='auto' xs={12}>
+        <Grid container direction='column' spacing={2}>
           <Grid item xs={6}>
-            <Card sx={{ maxWidth: 400, width:'100%' }}>
+            <Card sx={{ maxWidth: 400, width:'100%', margin: '0 auto' }}>
               <CardMedia
                 component="img"
                 alt="green iguana"
@@ -64,7 +64,7 @@ const Home = () => {
             </Card>
           </Grid>
           <Grid item xs={6}>
-            <Card sx={{maxWidth: 400, width:'100%' }}>
+            <Card sx={{maxWidth: 400, width:'100%', margin: '0 auto' }}>
               <CardMedia
                 component="img"
                 alt="green iguana"

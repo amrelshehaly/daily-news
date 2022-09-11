@@ -5,7 +5,7 @@ import Editorpicks from '../../components/editor-picks'
 
 const News = () => {
   return (
-    <Grid container direction='column'>
+    <Grid container spacing={2} direction='column' justifyContent='center'>
         <Grid item>
             <Home />
         </Grid>
