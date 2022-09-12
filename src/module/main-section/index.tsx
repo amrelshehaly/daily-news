@@ -5,7 +5,7 @@ import News from '../news-section'
 
 const Main = () => {
   return (
-    <Grid container spacing={2} justifyContent="center">
+    <Grid container spacing={2} justifyContent="center" >
         <Grid item sm={8}>
             <News />
         </Grid>

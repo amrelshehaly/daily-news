@@ -4,7 +4,7 @@ import RecentPicks from '../../components/recent-post'
 
 const HotNews = () => {
   return (
-    <Grid container spacing={2} direction='column'>
+    <Grid container spacing={2} direction='column' justifyContent='center'>
         <Grid item>
             <RecentPicks />
         </Grid>

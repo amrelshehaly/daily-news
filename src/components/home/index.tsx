@@ -14,8 +14,8 @@ const uni = '../../images/uni.jpg'
 
 const Home = () => {
   return (
-    <Grid container spacing={2}>
-      <Grid item sm={6} md={6} lg='auto'  xs={12}>
+    <Grid container spacing={2} justifyContent='right'>
+      <Grid item sm={6} md={6} lg='auto' xl='auto'  xs={12}>
         <Card sx={{ maxWidth: 400, width:'100%', height:'100%', margin: '0 auto' }}>
           <CardMedia
             component="img"
@@ -38,7 +38,7 @@ const Home = () => {
           </CardActions>
         </Card>
       </Grid>
-      <Grid item sm={6} md={6} lg='auto' xs={12}>
+      <Grid item sm={6} md={6} lg='auto' xl='auto' xs={12}>
         <Grid container direction='column' spacing={2}>
           <Grid item xs={6}>
             <Card sx={{ maxWidth: 400, width:'100%', margin: '0 auto' }}>
