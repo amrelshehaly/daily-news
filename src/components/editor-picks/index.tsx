@@ -18,6 +18,9 @@ const Editorpicks = () => {
             title={val.title}
             subTitle={val.description}
             Image={uni}
+            tag={'MUSTREADS'}
+            author={'Mike Tyson'}
+            date={'October 3, 2022'}
           />
         )
       })}

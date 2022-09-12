@@ -10,11 +10,12 @@ import {
 } from '@mui/material'
 
 const uni = '../../images/uni.jpg'
+import content from '../data.json'
 
 
 const Home = () => {
   return (
-    <Grid container spacing={2} justifyContent='right'>
+    <Grid container spacing={2} justifyContent='right' alignItems="stretch" sx={{height:'100%'}}>
       <Grid item sm={6} md={6} lg='auto' xl='auto'  xs={12}>
         <Card sx={{ maxWidth: 400, width:'100%', height:'100%', margin: '0 auto' }}>
           <CardMedia

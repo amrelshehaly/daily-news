@@ -4,7 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { getNews } from '../src/utils'
 import HomePage from '../src/components/home'
-import RecentPostsPage from '../src/components/recent-post'
+import RecentPostsPage from '../src/components/side-posts'
 import Main from '../src/module/main-section'
 
 export const getStaticProps: GetStaticProps = async () => {
