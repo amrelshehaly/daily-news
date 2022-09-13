@@ -31,42 +31,56 @@ const SimpleListItem: FC<Props> = (props: Props) => {
             <img src={Image} width="70px" height="70px" />
           </ListItemAvatar>
         )}
-        <ListItemText
-          primary={
-            <Box>
-              <Typography sx={{ fontSize: '12px', color: 'lightgray' }}>
-                {tag}
-              </Typography>
-              <Typography sx={{ fontWeight: 700 }} component="div">
-                {title}
-              </Typography>
-            </Box>
-          }
-          secondary={
-            <Box>
-              <Typography
-                sx={{
-                  display: '-webkit-box',
-                  overflow: 'hidden',
-                  WebkitBoxOrient: 'vertical',
-                  WebkitLineClamp: 3,
-                }}
-              >
-                {subTitle}
-              </Typography>
-              <Typography sx={{ fontSize: '12px', color: 'lightgray', display: 'flex' }}>
-                {author && (
-                  <Typography sx={{ display: 'flex', fontSize: '12px' }}>
-                    By &nbsp;
-                    <Typography sx={{ color: 'red', fontSize: '12px' }}>{author}</Typography>
-                    &nbsp;-&nbsp;
+
+        <Box>
+          <Box>
+            <Typography
+              component="div"
+              sx={{ fontSize: '12px', color: 'lightgray' }}
+            >
+              {tag}
+            </Typography>
+            <Typography sx={{ fontWeight: 700 }} component="div">
+              {title}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography
+              component="div"
+              sx={{
+                display: '-webkit-box',
+                overflow: 'hidden',
+                WebkitBoxOrient: 'vertical',
+                WebkitLineClamp: 3,
+              }}
+            >
+              {subTitle}
+            </Typography>
+            <Typography
+              component="div"
+              sx={{ fontSize: '12px', color: 'lightgray', display: 'flex' }}
+            >
+              {author && (
+                <Typography
+                  component="div"
+                  sx={{ display: 'flex', fontSize: '12px' }}
+                >
+                  By &nbsp;
+                  <Typography
+                    component="div"
+                    sx={{ color: 'red', fontSize: '12px' }}
+                  >
+                    {author}
                   </Typography>
-                )}
-                <Typography sx={{fontSize:'12px'}} component='div'>{date}</Typography>
+                  &nbsp;-&nbsp;
+                </Typography>
+              )}
+              <Typography component="div" sx={{ fontSize: '12px' }}>
+                {date}
               </Typography>
-            </Box>
-          }
-        />
+            </Typography>
+          </Box>
+        </Box>
       </ListItem>
       <Divider variant="inset" component="li" />
     </>

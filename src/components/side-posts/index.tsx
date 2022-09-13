@@ -28,7 +28,7 @@ const SidePost : FC<Props> = ({title}) => {
               key={idx}
               subTitle={val.description}
               Image={uni}
-              tag={'October 3, 2022'}
+              date={'October 3, 2022'}
             />
           )
         })}
