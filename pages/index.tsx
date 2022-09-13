@@ -1,21 +1,38 @@
 import type { NextPage, GetStaticProps } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import { getNews } from '../src/utils'
-import HomePage from '../src/components/home'
-import RecentPostsPage from '../src/components/side-posts'
 import Main from '../src/module/main-section'
+// import { store,  } from '../src/store'
+import { getNews, AddNews } from '../src/store/news'
+import { useDispatch, useSelector } from 'react-redux'
+import {getNewsAPI} from '../src/utils'
+
 
 export const getStaticProps: GetStaticProps = async () => {
-  // await getNews()
+
+
+  const response = await getNewsAPI().then((res) => res.json()).
+        then((data)=>{
+          return data
+        })
 
   return {
-    props: {},
+    props: {data: response},
   }
 }
 
-const Home: NextPage = () => {
+const Home: NextPage = ({data}:any) => {
+  const dispatch = useDispatch()
+  // const news = useSelector(getNews)
+  console.log('data from static props', data.articles.length)
+  
+  if(data){
+    console.log('calling dispatch')
+    data.articles.forEach((element:any) => {
+      dispatch(AddNews({
+        ...element
+      }))
+    });
+  }
+
   return (
     <>
       <Main />

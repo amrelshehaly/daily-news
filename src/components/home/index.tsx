@@ -1,5 +1,8 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Grid } from '@mui/material'
+import { useDispatch, useSelector } from 'react-redux'
+import { AddNews, getNews } from '../../store/news'
+
 
 const uni = '../../images/uni.jpg'
 
@@ -8,6 +11,15 @@ import SimpleCard from '../../common/Card'
 import content from '../data.json'
 
 const Home = () => {
+
+  const news = useSelector(getNews)
+  const [nesData, setNewsData] = useState<any[]>([])
+
+
+  useEffect(()=>{
+    console.log('this is news', news)
+  },[])
+
   return (
     <Grid container spacing={2} justifyContent="right" sx={{ height: '100%' }}>
       <Grid item sm={6} md={6} lg="auto" xl="auto" xs={12}>
