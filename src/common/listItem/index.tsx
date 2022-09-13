@@ -7,6 +7,7 @@ import ListItemText from '@mui/material/ListItemText'
 import ListItemAvatar from '@mui/material/ListItemAvatar'
 import Avatar from '@mui/material/Avatar'
 import { Typography, Box } from '@mui/material'
+import { Person } from '@mui/icons-material'
 
 import uni from '../../../public/images/uni.jpg'
 
@@ -14,18 +15,27 @@ import uni from '../../../public/images/uni.jpg'
 
 interface Props {
   Image?: string
-  title?: string
+  title?: string | React.ReactNode
   subTitle: string
   tag?: string
   author?: string
   date?: string
+  isAvatar?: boolean
+  styles?: React.CSSProperties
 }
 
 const SimpleListItem: FC<Props> = (props: Props) => {
-  const { Image, title, subTitle, tag, author, date } = props
+  const { Image, title, subTitle, tag, author, date, isAvatar, styles } = props
   return (
     <>
-      <ListItem alignItems="flex-start">
+      <ListItem alignItems="flex-start" sx={{ ...styles }}>
+        {isAvatar && (
+          <ListItemAvatar sx={{ marginRight: '10px' }}>
+            <Avatar>
+              <Person />
+            </Avatar>
+          </ListItemAvatar>
+        )}
         {Image && (
           <ListItemAvatar sx={{ marginRight: '10px' }}>
             <img src={Image} width="70px" height="70px" />
