@@ -1,14 +1,5 @@
 import React from 'react'
-import {
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Typography,
-  Button,
-  Grid,
-} from '@mui/material'
-import { Replay, ChatBubble } from '@mui/icons-material'
+import { Grid } from '@mui/material'
 
 const uni = '../../images/uni.jpg'
 
@@ -18,12 +9,7 @@ import content from '../data.json'
 
 const Home = () => {
   return (
-    <Grid
-      container
-      spacing={2}
-      justifyContent="right"
-      sx={{ height: '100%' }}
-    >
+    <Grid container spacing={2} justifyContent="right" sx={{ height: '100%' }}>
       <Grid item sm={6} md={6} lg="auto" xl="auto" xs={12}>
         <SimpleCard
           style={{
