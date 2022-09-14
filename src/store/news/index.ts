@@ -2,7 +2,7 @@ import { createSlice, Draft, PayloadAction } from '@reduxjs/toolkit'
 import { HYDRATE } from "next-redux-wrapper";
 
 
-interface Props {
+export interface Props {
   source?: {
     id: string
     name: string
@@ -12,8 +12,9 @@ interface Props {
   description: string
   url?: string
   urlToImage?: string
-  publishedAt?: Date | undefined
+  publishedAt?: String 
   content?: string
+  format: (e:string) => Date
 }
 
 // author: '',
@@ -36,13 +37,13 @@ interface Props {
 //   results:[]
 // }
 
-export const newsSlice = createSlice({
+export const newsSlice : any = createSlice({
   name: 'news',
   initialState : [] as Props[],
   reducers: {
     AddNews: (state, action: PayloadAction<Props>) => {
         state.push(action.payload)
-    }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase<string, PayloadAction<Props>>(

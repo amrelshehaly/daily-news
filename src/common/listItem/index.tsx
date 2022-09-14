@@ -22,13 +22,27 @@ interface Props {
   date?: string
   isAvatar?: boolean
   styles?: React.CSSProperties
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void
 }
 
 const SimpleListItem: FC<Props> = (props: Props) => {
-  const { Image, title, subTitle, tag, author, date, isAvatar, styles } = props
+  const {
+    Image,
+    title,
+    subTitle,
+    tag,
+    author,
+    date,
+    isAvatar,
+    styles,
+    onClick,
+  } = props
+
+
+
   return (
     <>
-      <ListItem alignItems="flex-start" sx={{ ...styles }}>
+      <ListItem alignItems="flex-start" sx={{ ...styles, cursor: 'pointer' }} onClick={onClick}>
         {isAvatar && (
           <ListItemAvatar sx={{ marginRight: '10px' }}>
             <Avatar>
@@ -85,9 +99,11 @@ const SimpleListItem: FC<Props> = (props: Props) => {
                   &nbsp;-&nbsp;
                 </Typography>
               )}
-              <Typography component="div" sx={{ fontSize: '12px' }}>
-                {date}
-              </Typography>
+              {date && (
+                <Typography component="div" sx={{ fontSize: '12px' }}>
+                  {date}
+                </Typography>
+              )}
             </Typography>
           </Box>
         </Box>

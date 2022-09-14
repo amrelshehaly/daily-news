@@ -17,9 +17,10 @@ interface Props {
   picture?: string
   author ?: string
   ImgHeight?: string
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void
 }
 
-const SimpleCard : FC<Props> = ({style, title, subtitle, picture, author, ImgHeight}) => {
+const SimpleCard : FC<Props> = ({style, title, subtitle, picture, author, ImgHeight, onClick}) => {
 
     const styling = {
         maxWidth: 400,
@@ -30,7 +31,8 @@ const SimpleCard : FC<Props> = ({style, title, subtitle, picture, author, ImgHei
 
   return (
     <Card
-      sx={{...styling}}
+      sx={{...styling, cursor:'pointer'}}
+      onClick={onClick}
     >
       <CardMedia component="img" height={ImgHeight} image={picture} />
       <CardContent>

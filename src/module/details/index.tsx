@@ -1,10 +1,24 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Box, Typography, Grid } from '@mui/material'
 import Article from '../../components/article'
 import StatusBoard from '../../components/statusboard'
 import Banner from '../../components/banner'
+import { useDispatch, useSelector } from 'react-redux'
+import { setPosition, getPosition } from '../../store/details'
+import { AddNews, getNews, Props } from '../../store/news'
+import moment from 'moment'
+
 
 const DetailsPage = () => {
+  const store: any = useSelector(getPosition)
+  const [info, setInfo] = useState<Props>()
+
+//   console.log('position',position)
+
+  useEffect(()=>{
+    setInfo(store.news[store.position.id])
+  },[])
+
   return (
     <Grid
       container
@@ -14,13 +28,13 @@ const DetailsPage = () => {
       spacing={6}
     >
       <Grid item xs={12} sx={{ padding: '100px 100px 0px 100px' }}>
-        <Banner title='if You wanted to get rich, how would you do it ?'  author='Amr Mostafa' date=' Published on May 07, 2004' />
+        <Banner title={info?.title || ''}  author={info?.author} date={moment(info?.publishedAt?.toString()).format('MMMM Do YYYY')} />
       </Grid>
       <Grid item lg={3} xs={12}>
         <StatusBoard />
       </Grid>
       <Grid item lg={9} xs={12}>
-        <Article />
+        <Article content={info?.description} image={info?.urlToImage} />
       </Grid>
     </Grid>
   )

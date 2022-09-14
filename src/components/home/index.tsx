@@ -1,24 +1,29 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, FC} from 'react'
 import { Grid } from '@mui/material'
-import { useDispatch, useSelector } from 'react-redux'
-import { AddNews, getNews } from '../../store/news'
-
-
-const uni = '../../images/uni.jpg'
-
+import { Props } from '../../store/news'
+import { useRouter } from 'next/router'
 import SimpleCard from '../../common/Card'
+import { useDispatch, useSelector } from 'react-redux'
+import { setPosition, getPosition } from '../../store/details'
 
-import content from '../data.json'
+interface DataProps {
+  data: Props[]
+}
 
-const Home = () => {
+const Home : FC<DataProps> = ({data}) => {
+  const router = useRouter()
+  const dispatch = useDispatch()
 
-  const news = useSelector(getNews)
-  const [nesData, setNewsData] = useState<any[]>([])
 
-
-  useEffect(()=>{
-    console.log('this is news', news)
-  },[])
+  const handleDispatchPosition = (idx: number) => {
+    console.log(idx)
+    dispatch(
+      setPosition({
+        id: idx
+      }),
+    )
+    router.push('/details')
+  }
 
   return (
     <Grid container spacing={2} justifyContent="right" sx={{ height: '100%' }}>
@@ -30,10 +35,11 @@ const Home = () => {
             margin: '0 auto',
           }}
           ImgHeight="300"
-          author="Paul Graham"
-          picture={uni}
-          subtitle="Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica"
-          title="if you wanted to get rich, how would you do it"
+          author={data[0].author}
+          picture={data[0].urlToImage}
+          subtitle={data[0].description}
+          title={data[0].title}
+          onClick={()=> handleDispatchPosition(0)}
         />
       </Grid>
       <Grid item sm={6} md={6} lg="auto" xl="auto" xs={12}>
@@ -46,9 +52,10 @@ const Home = () => {
                 margin: '0 auto',
               }}
               ImgHeight="140"
-              author="Paul Graham"
-              picture={uni}
-              subtitle="Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica"
+              author={data[1].author}
+              picture={data[1].urlToImage}
+              subtitle={data[1].description}
+              onClick={()=> handleDispatchPosition(1)}
             />
           </Grid>
           <Grid item xs={6}>
@@ -59,9 +66,10 @@ const Home = () => {
                 margin: '0 auto',
               }}
               ImgHeight="140"
-              author="Paul Graham"
-              picture={uni}
-              subtitle="Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica"
+              author={data[2].author}
+              picture={data[2].urlToImage}
+              subtitle={data[2].description}
+              onClick={()=> handleDispatchPosition(2)}
             />
           </Grid>
         </Grid>

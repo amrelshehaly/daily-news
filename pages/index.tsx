@@ -21,10 +21,10 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Home: NextPage = ({data}:any) => {
   const dispatch = useDispatch()
-  // const news = useSelector(getNews)
+  const news: any = useSelector(getNews)
   console.log('data from static props', data.articles.length)
   
-  if(data){
+  if(news.news.length == 0){
     console.log('calling dispatch')
     data.articles.forEach((element:any) => {
       dispatch(AddNews({

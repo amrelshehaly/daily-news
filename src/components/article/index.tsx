@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState, FC } from 'react'
 import { Box, Typography, Grid, Button, List, TextField } from '@mui/material'
 import SimpleListItem from '../../common/listItem'
 import Link from 'next/link'
 const uni = '../../images/uni.jpg'
 import useStyles from './style'
 
-const Article = () => {
+interface Props {
+  content?: string
+  image?: string
+}
+
+const Article: FC<Props> = ({ content, image }) => {
   const classes = useStyles()
+
   return (
     <Grid
       container
@@ -16,21 +22,17 @@ const Article = () => {
       alignItems="center"
       className={classes.container}
     >
+      {image && (
+        <Grid item>
+          <img src={image} width="100%" height="100%" />
+        </Grid>
+      )}
       <Grid item>
-        <img src={uni} width="100%" height="100%" />
-      </Grid>
-      <Grid item>
-        <Typography component="div" variant="h6">
-          This page shares my best articles to read on topics like health,
-          happiness, creativity, productivity and more. The central question
-          that drives my work is, “How can we live better?” To answer that
-          question, I like to write about science-based ways to solve practical
-          problems. You’ll find interesting articles to read on topics like how
-          to stop procrastinating as well as personal recommendations like my
-          list of the best books to read and my minimalist travel guide. Ready
-          to dive in? You can use the categories below to browse my best
-          articles.
-        </Typography>
+        {content && (
+          <Typography component="div" variant="h6">
+            {content}
+          </Typography>
+        )}
       </Grid>
       <Grid item sx={{ width: '100%' }}>
         <Box className={classes.vote}>
