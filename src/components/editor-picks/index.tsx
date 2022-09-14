@@ -1,20 +1,18 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 import List from '@mui/material/List'
 import SimpleListItem from '../../common/listItem'
 import useStyles from './style'
 import { Props } from '../../store/news'
 import moment from 'moment'
-import { useDispatch  } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setPosition } from '../../store/details'
 import { useRouter } from 'next/router'
 
-
-const uni = '../../images/uni.jpg'
 interface DataProps {
   data: Props[]
 }
 
-const Editorpicks : FC<DataProps> = ({data}) => {
+const Editorpicks: FC<DataProps> = ({ data }) => {
   const classes = useStyles()
   const dispatch = useDispatch()
   const router = useRouter()
@@ -22,16 +20,15 @@ const Editorpicks : FC<DataProps> = ({data}) => {
   const handleDispatchPosition = (idx: number) => {
     dispatch(
       setPosition({
-        idx
+        idx,
       }),
     )
     router.push('/details')
   }
 
-
   return (
-    <List sx={{bgcolor: 'background.paper' }} className={classes.list}>
-      {data.slice(0,5).map((val, idx) => {
+    <List sx={{ bgcolor: 'background.paper' }} className={classes.list}>
+      {data.slice(0, 5).map((val, idx) => {
         return (
           <SimpleListItem
             key={idx}
@@ -40,8 +37,11 @@ const Editorpicks : FC<DataProps> = ({data}) => {
             Image={val.urlToImage}
             tag={val.source?.name}
             author={val.author}
-            date={val?.publishedAt && moment(val?.publishedAt).format('MMMM Do YYYY')}
-            onClick={()=> handleDispatchPosition(idx)}
+            date={
+              val?.publishedAt &&
+              moment(val?.publishedAt).format('MMMM Do YYYY')
+            }
+            onClick={() => handleDispatchPosition(idx)}
           />
         )
       })}

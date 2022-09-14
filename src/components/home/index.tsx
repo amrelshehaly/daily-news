@@ -1,24 +1,23 @@
-import React, {FC} from 'react'
+import React, { FC } from 'react'
 import { Grid } from '@mui/material'
 import { Props } from '../../store/news'
 import { useRouter } from 'next/router'
 import SimpleCard from '../../common/Card'
 import { useDispatch } from 'react-redux'
-import { setPosition  } from '../../store/details'
+import { setPosition } from '../../store/details'
 
 interface DataProps {
   data: Props[]
 }
 
-const Home : FC<DataProps> = ({data}) => {
+const Home: FC<DataProps> = ({ data }) => {
   const router = useRouter()
   const dispatch = useDispatch()
-
 
   const handleDispatchPosition = (idx: number) => {
     dispatch(
       setPosition({
-        id: idx
+        id: idx,
       }),
     )
     router.push('/details')
@@ -38,7 +37,7 @@ const Home : FC<DataProps> = ({data}) => {
           picture={data[0].urlToImage}
           subtitle={data[0].description}
           title={data[0].title}
-          onClick={()=> handleDispatchPosition(0)}
+          onClick={() => handleDispatchPosition(0)}
         />
       </Grid>
       <Grid item sm={6} md={6} lg="auto" xl="auto" xs={12}>
@@ -54,7 +53,7 @@ const Home : FC<DataProps> = ({data}) => {
               author={data[1].author}
               picture={data[1].urlToImage}
               subtitle={data[1].description}
-              onClick={()=> handleDispatchPosition(1)}
+              onClick={() => handleDispatchPosition(1)}
             />
           </Grid>
           <Grid item xs={6}>
@@ -68,7 +67,7 @@ const Home : FC<DataProps> = ({data}) => {
               author={data[2].author}
               picture={data[2].urlToImage}
               subtitle={data[2].description}
-              onClick={()=> handleDispatchPosition(2)}
+              onClick={() => handleDispatchPosition(2)}
             />
           </Grid>
         </Grid>

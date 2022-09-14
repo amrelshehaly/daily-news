@@ -12,17 +12,17 @@ const StatusBoard = () => {
       className={classes.container}
     >
       <Box gridColumn="span 12">
-        <Typography component="div" sx={{display:'grid'}}>
-            <Typography  component="div" variant='h4'>
-                23
-            </Typography>
-            <Typography component="div" variant='h6'>
-                Shares
-            </Typography>
+        <Typography component="div" sx={{ display: 'grid' }}>
+          <Typography component="div" variant="h4">
+            23
+          </Typography>
+          <Typography component="div" variant="h6">
+            Shares
+          </Typography>
         </Typography>
       </Box>
       <Box gridColumn="span 12">
-        <Typography >Email</Typography>
+        <Typography>Email</Typography>
       </Box>
       <Box gridColumn="span 12">
         <Typography>facebook</Typography>

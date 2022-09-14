@@ -14,7 +14,7 @@ const Banner: FC<Props> = ({ title, author, date }) => {
       variant="h3"
       sx={{ borderBottom: '1px solid grey' }}
     >
-        {title}
+      {title}
       <Typography component="div" sx={{ display: 'flex' }}>
         {author && (
           <Typography component="div" sx={{ color: 'red', display: 'flex' }}>

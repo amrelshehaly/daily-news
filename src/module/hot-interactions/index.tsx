@@ -6,12 +6,16 @@ import FollowUs from '../../components/follow-us'
 import { useSelector } from 'react-redux'
 import { getNews } from '../../store/news'
 
-
-
 const HotNews = () => {
-  const news : any = useSelector(getNews)
+  const news: any = useSelector(getNews)
   return (
-    <Grid container spacing={2} direction="column" justifyContent="center" alignItems="stretch">
+    <Grid
+      container
+      spacing={2}
+      direction="column"
+      justifyContent="center"
+      alignItems="stretch"
+    >
       <Grid item>
         <SidePost title="Recent Posts" data={news.news} />
       </Grid>

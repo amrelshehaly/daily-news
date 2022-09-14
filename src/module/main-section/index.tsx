@@ -4,8 +4,8 @@ import HotNews from '../hot-interactions'
 import News from '../news-section'
 import Trending from '../../components/trending'
 import { Typography } from '@material-ui/core'
-import { useDispatch, useSelector } from 'react-redux'
-import { AddNews, getNews } from '../../store/news'
+import { useSelector } from 'react-redux'
+import { getNews } from '../../store/news'
 
 const Main = () => {
   const news: any = useSelector(getNews)
@@ -22,7 +22,9 @@ const Main = () => {
         <Box sx={{ border: '5px solid grey', marginTop: '3%' }}></Box>
       </Grid>
       <Grid item xs={9}>
-        <Typography component='div' variant='h5'>Trending</Typography>
+        <Typography component="div" variant="h5">
+          Trending
+        </Typography>
       </Grid>
       <Grid item xs={12}>
         <Trending data={news.news} />

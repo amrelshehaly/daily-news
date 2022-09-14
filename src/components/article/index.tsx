@@ -36,7 +36,7 @@ const Article: FC<Props> = ({ content, image }) => {
       <Grid item sx={{ width: '100%' }}>
         <Box className={classes.vote}>
           <Button variant="contained">I found this helpful</Button>
-          <Button variant="contained">I don't found this helpful</Button>
+          <Button variant="contained">I dont found this helpful</Button>
         </Box>
       </Grid>
       <Grid item sx={{ width: '100%' }}>

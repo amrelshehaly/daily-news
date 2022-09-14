@@ -6,8 +6,6 @@ import Avatar from '@mui/material/Avatar'
 import { Typography, Box } from '@mui/material'
 import { Person } from '@mui/icons-material'
 
-
-
 interface Props {
   Image?: string
   title?: string | React.ReactNode
@@ -33,11 +31,13 @@ const SimpleListItem: FC<Props> = (props: Props) => {
     onClick,
   } = props
 
-
-
   return (
     <>
-      <ListItem alignItems="flex-start" sx={{ ...styles, cursor: 'pointer' }} onClick={onClick}>
+      <ListItem
+        alignItems="flex-start"
+        sx={{ ...styles, cursor: 'pointer' }}
+        onClick={onClick}
+      >
         {isAvatar && (
           <ListItemAvatar sx={{ marginRight: '10px' }}>
             <Avatar>

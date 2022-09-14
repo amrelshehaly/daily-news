@@ -1,26 +1,22 @@
-import React, {useState, useEffect} from 'react'
-import { Box, Typography, Grid } from '@mui/material'
+import React, { useState, useEffect } from 'react'
+import { Grid } from '@mui/material'
 import Article from '../../components/article'
 import StatusBoard from '../../components/statusboard'
 import Banner from '../../components/banner'
-import { useDispatch, useSelector } from 'react-redux'
-import { setPosition, getPosition } from '../../store/details'
-import { AddNews, getNews, Props } from '../../store/news'
+import { useSelector } from 'react-redux'
+import { getPosition } from '../../store/details'
+import { Props } from '../../store/news'
 import moment from 'moment'
 import useStyles from '../../module/details/style'
-
-
 
 const DetailsPage = () => {
   const store: any = useSelector(getPosition)
   const [info, setInfo] = useState<Props>()
   const classes = useStyles()
 
-
-
-  useEffect(()=>{
+  useEffect(() => {
     setInfo(store.news[store.position.id])
-  },[])
+  }, [])
 
   return (
     <Grid
@@ -31,7 +27,11 @@ const DetailsPage = () => {
       spacing={6}
     >
       <Grid item xs={12} className={classes.container}>
-        <Banner title={info?.title || ''}  author={info?.author} date={moment(info?.publishedAt?.toString()).format('MMMM Do YYYY')} />
+        <Banner
+          title={info?.title || ''}
+          author={info?.author}
+          date={moment(info?.publishedAt?.toString()).format('MMMM Do YYYY')}
+        />
       </Grid>
       <Grid item lg={3} xs={12}>
         <StatusBoard />

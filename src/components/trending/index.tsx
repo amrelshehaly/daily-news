@@ -12,7 +12,6 @@ interface DataProps {
 }
 
 const Trending: FC<DataProps> = ({ data }) => {
-  const array = [1, 2, 3, 4]
   const dispatch = useDispatch()
   const router = useRouter()
 
@@ -47,7 +46,10 @@ const Trending: FC<DataProps> = ({ data }) => {
                     <SimpleListItem
                       key={idx}
                       subTitle={val.description}
-                      tag={val?.publishedAt && moment(val?.publishedAt).format('MMMM Do YYYY')}
+                      tag={
+                        val?.publishedAt &&
+                        moment(val?.publishedAt).format('MMMM Do YYYY')
+                      }
                       onClick={() => handleDispatchPosition(idx)}
                     />
                   )
