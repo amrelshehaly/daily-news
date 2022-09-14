@@ -41,21 +41,13 @@ const SidePost: FC<DataProps> = ({ title, data }) => {
       <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
         {data.length > 0 &&
           data.slice(0, 3).map((val, idx) => {
-            let date : string = ''
-            if (val.publishedAt) {
-              const datee = new Date(val?.publishedAt)
-              const year = datee.getFullYear() + ''
-              const month = datee.getMonth() +''
-              const day = datee.getDay()+''
-              date = day+'-'+month+'-'+year
-            }
             return (
               <SimpleListItem
                 title={val.title}
                 key={idx}
                 subTitle={val.description}
                 Image={val.urlToImage}
-                date={date && moment(date).format('MMMM Do YYYY')}
+                date={val?.publishedAt && moment(val?.publishedAt).format('MMMM Do YYYY')}
                 onClick={() => handleDispatchPosition(idx)}
               />
             )
