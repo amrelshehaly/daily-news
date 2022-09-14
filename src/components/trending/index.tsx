@@ -43,11 +43,19 @@ const Trending: FC<DataProps> = ({ data }) => {
                 }}
               >
                 {data.slice(0, 3).map((val, idx) => {
+                  let date : string = ''
+                  if (val.publishedAt) {
+                    const datee = new Date(val?.publishedAt)
+                    const year = datee.getFullYear() + ''
+                    const month = datee.getMonth() +''
+                    const day = datee.getDay()+''
+                    date = day+'-'+month+'-'+year
+                  }
                   return (
                     <SimpleListItem
                       key={idx}
                       subTitle={val.description}
-                      tag={moment(val?.publishedAt?.toString()).format('MMMM Do YYYY')}
+                      tag={date && moment(date).format('MMMM Do YYYY')}
                       onClick={() => handleDispatchPosition(idx)}
                     />
                   )

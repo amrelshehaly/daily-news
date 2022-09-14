@@ -32,6 +32,14 @@ const Editorpicks : FC<DataProps> = ({data}) => {
   return (
     <List sx={{bgcolor: 'background.paper' }} className={classes.list}>
       {data.slice(0,5).map((val, idx) => {
+        let date : string = ''
+        if (val.publishedAt) {
+          const datee = new Date(val?.publishedAt)
+          const year = datee.getFullYear() + ''
+          const month = datee.getMonth() +''
+          const day = datee.getDay()+''
+          date = day+'-'+month+'-'+year
+        }
         return (
           <SimpleListItem
             key={idx}
@@ -40,7 +48,7 @@ const Editorpicks : FC<DataProps> = ({data}) => {
             Image={val.urlToImage}
             tag={val.source?.name}
             author={val.author}
-            date={moment(val?.publishedAt?.toString()).format('MMMM Do YYYY')}
+            date={date && moment(date).format('MMMM Do YYYY')}
             onClick={()=> handleDispatchPosition(idx)}
           />
         )

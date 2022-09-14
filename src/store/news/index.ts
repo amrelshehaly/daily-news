@@ -12,7 +12,7 @@ export interface Props {
   description: string
   url?: string
   urlToImage?: string
-  publishedAt?: String 
+  publishedAt?: string 
   content?: string
   format: (e:string) => Date
 }
