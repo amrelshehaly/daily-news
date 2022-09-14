@@ -1,8 +1,7 @@
-import React, { useEffect, useState, FC } from 'react'
+import React, { FC } from 'react'
 import { Box, Typography, Grid, Button, List, TextField } from '@mui/material'
 import SimpleListItem from '../../common/listItem'
 import Link from 'next/link'
-const uni = '../../images/uni.jpg'
 import useStyles from './style'
 
 interface Props {

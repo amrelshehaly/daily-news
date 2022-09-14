@@ -1,6 +1,5 @@
 import type { NextPage, GetStaticProps } from 'next'
 import Main from '../src/module/main-section'
-// import { store,  } from '../src/store'
 import { getNews, AddNews } from '../src/store/news'
 import { useDispatch, useSelector } from 'react-redux'
 import {getNewsAPI} from '../src/utils'
@@ -22,10 +21,8 @@ export const getStaticProps: GetStaticProps = async () => {
 const Home: NextPage = ({data}:any) => {
   const dispatch = useDispatch()
   const news: any = useSelector(getNews)
-  console.log('data from static props', data.articles.length)
   
   if(news.news.length == 0){
-    console.log('calling dispatch')
     data.articles.forEach((element:any) => {
       dispatch(AddNews({
         ...element
@@ -36,8 +33,6 @@ const Home: NextPage = ({data}:any) => {
   return (
     <>
       <Main />
-      {/* <HomePage />
-      <RecentPostsPage /> */}
     </>
   )
 }

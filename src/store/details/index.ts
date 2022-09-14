@@ -15,7 +15,6 @@ export const positionSlice : any = createSlice({
   initialState,
   reducers: {
     setPosition: (state, action: PayloadAction<PositionProps>) => {
-        console.log('reducer',action.payload.id)
         return  {id: action.payload.id}
     },
   },

@@ -1,7 +1,6 @@
-import React, {FC, useEffect} from 'react'
+import React, {FC} from 'react'
 import { List, Paper, Typography } from '@mui/material'
 import SimpleListItem from '../../common/listItem'
-import content from '../data.json'
 import { Props } from '../../store/news'
 import moment from 'moment'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,7 +8,6 @@ import { setPosition, getPosition } from '../../store/details'
 import { useRouter } from 'next/router'
 
 
-// import uni from '../../../public/images/uni.jpg'
 
 const uni = '../../images/uni.jpg'
 
@@ -25,7 +23,6 @@ const SidePost : FC<DataProps> = ({title, data}) => {
   const [array, setArray] = React.useState<Props[]>([])
 
   const handleDispatchPosition = (idx: number) => {
-    console.log(idx)
     dispatch(
       setPosition({
         id: idx
@@ -34,10 +31,6 @@ const SidePost : FC<DataProps> = ({title, data}) => {
     router.push('/details')
   }
 
-
-  useEffect(()=>{
-    console.log(position)
-  },[position])
   return (
     <Paper elevation={10} sx={{ width: 'fit-content' }}>
       <Typography

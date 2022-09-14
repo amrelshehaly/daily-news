@@ -7,13 +7,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setPosition, getPosition } from '../../store/details'
 import { AddNews, getNews, Props } from '../../store/news'
 import moment from 'moment'
+import useStyles from '../../module/details/style'
+
 
 
 const DetailsPage = () => {
   const store: any = useSelector(getPosition)
   const [info, setInfo] = useState<Props>()
+  const classes = useStyles()
 
-//   console.log('position',position)
+
 
   useEffect(()=>{
     setInfo(store.news[store.position.id])
@@ -27,7 +30,7 @@ const DetailsPage = () => {
       alignItems="flex-start"
       spacing={6}
     >
-      <Grid item xs={12} sx={{ padding: '100px 100px 0px 100px' }}>
+      <Grid item xs={12} className={classes.container}>
         <Banner title={info?.title || ''}  author={info?.author} date={moment(info?.publishedAt?.toString()).format('MMMM Do YYYY')} />
       </Grid>
       <Grid item lg={3} xs={12}>

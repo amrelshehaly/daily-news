@@ -1,13 +1,11 @@
 import React, {FC} from 'react'
 import List from '@mui/material/List'
-import content from '../data.json'
 import SimpleListItem from '../../common/listItem'
 import useStyles from './style'
-// import uni from '../../../public/images/uni.jpg'
 import { Props } from '../../store/news'
 import moment from 'moment'
-import { useDispatch, useSelector } from 'react-redux'
-import { setPosition, getPosition } from '../../store/details'
+import { useDispatch  } from 'react-redux'
+import { setPosition } from '../../store/details'
 import { useRouter } from 'next/router'
 
 

@@ -1,10 +1,10 @@
-import React, {useEffect, useState, FC} from 'react'
+import React, {FC} from 'react'
 import { Grid } from '@mui/material'
 import { Props } from '../../store/news'
 import { useRouter } from 'next/router'
 import SimpleCard from '../../common/Card'
-import { useDispatch, useSelector } from 'react-redux'
-import { setPosition, getPosition } from '../../store/details'
+import { useDispatch } from 'react-redux'
+import { setPosition  } from '../../store/details'
 
 interface DataProps {
   data: Props[]
@@ -16,7 +16,6 @@ const Home : FC<DataProps> = ({data}) => {
 
 
   const handleDispatchPosition = (idx: number) => {
-    console.log(idx)
     dispatch(
       setPosition({
         id: idx

@@ -1,17 +1,12 @@
 import React, { FC } from 'react'
-import Image, { StaticImageData } from 'next/image'
-import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import Divider from '@mui/material/Divider'
-import ListItemText from '@mui/material/ListItemText'
 import ListItemAvatar from '@mui/material/ListItemAvatar'
 import Avatar from '@mui/material/Avatar'
 import { Typography, Box } from '@mui/material'
 import { Person } from '@mui/icons-material'
 
-import uni from '../../../public/images/uni.jpg'
 
-// const uni = '../../images/uni.jpg'
 
 interface Props {
   Image?: string

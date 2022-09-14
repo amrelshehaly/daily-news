@@ -17,25 +17,6 @@ export interface Props {
   format: (e:string) => Date
 }
 
-// author: '',
-//   content: '',
-//   title: '',
-//   description: '',
-//   publishedAt: undefined,
-//   url: '',
-//   urlToImage: '',
-//   source: {
-//     id: '',
-//     name: '',
-//   },
-
-// interface NewProps {
-//     results: Props[]
-// }
-
-// const initialState: NewProps = {
-//   results:[]
-// }
 
 export const newsSlice : any = createSlice({
   name: 'news',
